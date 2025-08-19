@@ -1,0 +1,33 @@
+@charset "UTF-8" ;
+
+.mo_img {display: none;}
+header.main  {position: absolute; padding-top:clamp(10px,1.5vw,30px)  ; width: 100%; left: 0; top: 0; z-index: 10;}
+header {}
+header.sub {padding:clamp(10px,2.0vw,30px); width: 100%; position: relative; z-index: 50; }
+header h1 {margin: 0 auto 1.5vw auto; text-align: center;}
+
+header .pc_nav {display: flex; justify-content: center; align-items: center; gap: 12px; position: relative;}
+header .gif {position:absolute; top:50px; right:50px; margin: 0;}
+
+header .pc_nav .gnb {display: flex; justify-content: center;}
+header .pc_nav .gnb > li {font-size: 15px; width: 148px; height: 30px; background: #442819; margin-left: 5px; transition: .5s; position: relative;}
+header .pc_nav .gnb > li a {color: #fff; display: flex; justify-content: center; align-items: center; height: 100%; font-family: 'Cafe24Dangdanghae';}
+
+header .pc_nav .gnb > li:hover > a {background: #D7733A;}
+
+header .pc_nav .gnb > li .lnb {position: absolute; width: 100%; padding: 10px 0; display: none;}
+header .pc_nav .gnb > li .lnb a {font-size: 15px; width: 148px; height: 30px; background: #442819; }
+
+header .pc_nav .gnb li .lnb a:hover {background:#D14C00}
+
+header .mo_nav {display: none;}
+.hamburger {display: none;}
+
+
+
+
+footer .footerbox h1 img {display: none;}
+footer li, footer li a {color:#fff; font-weight: normal; font-size: 13px; padding: 3px 0;}
+footer {background: #412C20;}
+footer .footerbox {max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; color:#D14C00; padding: 68px 0; }
+footer .footerbox .us ul {display: flex; gap: 23px; padding-top: 20px; justify-content: start; align-items: start; flex-grow: 1;}

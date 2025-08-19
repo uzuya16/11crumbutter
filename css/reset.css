@@ -1,0 +1,15 @@
+@charset "UTF-8" ;
+
+/* 초기셋팅 */
+* {margin: 0; padding: 0;}
+a {text-decoration: none; color: #44281A;}
+li {list-style: none;}
+img, video {vertical-align: top;}
+table {border-collapse: collapse;}
+input {outline: 0;}
+fieldset {border: 0;}
+legend {font-size: 0; color: transparent; text-indent: -9999px; position: absolute; left: -99999px;}
+
+
+html, body { overflow-x: hidden; }
+*, *::before, *::after { box-sizing: border-box; }
