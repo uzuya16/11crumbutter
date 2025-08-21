@@ -9,6 +9,7 @@ table {border-collapse: collapse;}
 input {outline: 0;}
 fieldset {border: 0;}
 legend {font-size: 0; color: transparent; text-indent: -9999px; position: absolute; left: -99999px;}
+textarea {border-radius: 0; resize: none; outline: 0;}
 
 
 html, body { overflow-x: hidden; }

@@ -465,4 +465,49 @@ $(function () {
   $('.login .id_box input').keydown(function(){
     console.log(e.key);
   })
+  
+});
+
+
+
+$(function () {
+  function showSection(target) {
+    // 모든 콘텐츠 숨김
+    $("#history, #location").hide();
+
+    // 선택한 콘텐츠만 보이기
+    $("#" + target).show();
+
+    // 탭 메뉴 on 처리
+    $("span").removeClass("on");
+    $("span a[data-target='" + target + "']").parent().addClass("on");
+  }
+
+  // 현재 해시값에 따라 섹션 보여주기
+  function checkHash() {
+    let hash = window.location.hash.replace("#", "");
+    if (hash) {
+      showSection(hash);
+    } else {
+      showSection("history"); // 기본값
+    }
+  }
+
+  // 페이지 로드 시 실행
+  checkHash();
+
+  // 해시값 바뀔 때마다 실행
+  $(window).on("hashchange", function () {
+    checkHash();
+  });
+
+  // 탭 클릭 시 전환
+  $("a[data-target]").on("click", function (e) {
+    e.preventDefault();
+    let target = $(this).data("target");
+    showSection(target);
+
+     // 해시 변경 (화면 이동 없음)
+  history.replaceState(null, "", "#" + target);
+  });
 });
