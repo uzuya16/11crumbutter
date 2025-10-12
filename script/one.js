@@ -1,269 +1,3 @@
-// // $(document).ready(function(){
-// //     $('.smallimg li').mouseenter(function(){
-// //        let sImg = $(this).find('img').attr('src');
-// //        let sText1 = $(this).find('.title1').text();
-// //        let sText2 = $(this).find('.title2').text();
-
-// //         $('.bigimg img').attr('src', sImg);
-// //         $('.bigimg .text').html(sText1+'<br>'+sText2);
-// //         // $('.bigimg .title3').text(sText2)
-
-// //        $(this).addClass('on').siblings().removeClass('on');
-// //     });
-// // });
-
-
-
-// let pcNav = $('.pc_nav').html();
-//     $('.mo_nav').html(pcNav);
-
-//     $('.pc_nav li').mouseenter(function(){
-//         $(this).find('.lnb').fadeIn(100);
-//     })
-//     $('.pc_nav li').mouseleave(function(){
-//         $(this).find('.lnb').fadeOut(100);
-//     })
-//     $('.pc_nav').mouseenter(function(){
-//         $('.pc_nav_bg').stop().fadeIn(100);
-//     })
-//     $('.pc_nav').mouseleave(function(){
-//         $('.pc_nav_bg').stop().fadeOut(500);
-//     })
-
-
-//     // 모바일 하위메뉴 나타났다 사라지기
-//     $('.mo_nav .gnb > li > a').click(function(){
-//         $('.mo_nav .gnb .lnb').slideUp();           //슬라이드 먼저 접고
-//         $(this).siblings('.lnb').stop().slideToggle();  //클릭하면 멈추었다가 슬라이드 열었다 접어라 
-        
-//         return false //링크가 걸리지 않게 함
-//     });
-
-
-//     $('.hamburger').click(function(){
-//         $(this).toggleClass('on');
-//         $('.mo_nav').fadeToggle().toggleClass('on');     
-//         bodyNoScroll();
-//     });
-
-
-
-//     function bodyNoScroll(){
-//         if($('.hamburger').hasClass('on')){
-//             $('body').css({height:'100vh', overflow:'hidden'});
-//         }else{
-//             $('body').css({height:'', overflow:''});
-//     };   
-//     }
-
-
-
-//     $(window).resize(function(){
-//         let winW = $(window).width();
-//         if(winW < 880){
-//             $('#section3 .day').each(function(){
-//             $(this).appendTo($(this).siblings('.textbox'))
-//         })
-//         }else {
-//             $('#section3 .day').each(function(){
-//             $(this).appendTo($(this).parents('.box1'))
-//             });
-
-//             $('.mo_nav').removeClass('on').hide();
-//             $('.mo_nav .gnb .lnb').slideUp();
-//             $('.hamburger').removeClass('on');
-//             bodyNoScroll();
-//         }
-
-
-        
-
-    
-
-
-//     $(document).ready(function () {
-//     let liNum = 0;
-//     let rolling
-//     let sLength = $('.smallimg li').length;
-
-//     $('.smallimg li').mouseenter(function () {
-//         liNum = $(this).index();
-//         sImgActive()
-//         clearInterval(rolling)
-//     });
-
-//     $('.smallimg li').mouseleave(function () {
-//         rolling = setInterval(rollingImg, 2000)
-//     })
-
-//     scrollEffect()
-
-
-//     $(window).scroll(function () {
-//         scrollEffect()
-//     })
-
-
-
-
-//     function scrollEffect() {
-//         let scrT = $(window).scrollTop();
-//         let sec1Top = $('#section1').offset().top;
-//         let sec2Top = $('#section2').offset().top;
-//         let sec3Top = $('#section3').offset().top;
-//         let winH = $(window).height();
-
-//         if (scrT > 0) {
-//             $('#hero').addClass('on')
-//         } else {
-//             $('#hero').removeClass('on')
-//         }
-
-//         if (scrT > sec1Top - winH / 2) {
-//             $('#section1 .imgbox').addClass('on')
-//         } else {
-//             $('#section1 .imgbox').removeClass('on')
-//         }
-
-//         if (scrT > sec2Top - winH / 2) {
-//             $('#section2 .imgbox').addClass('on')
-//         } else {
-//             $('#section2 .imgbox').removeClass('on')
-//         }
-
-//         if (scrT > sec3Top - winH / 2) {
-//             $('#section3 .noticebox').addClass('on')
-
-//         } else {
-//             $('#section3 .noticebox').removeClass('on')
-//         }
-//     }
-
-
-
-
-//     function rollingImg() {
-//         liNum++;
-//         if (liNum >= sLength) {
-//             liNum = 0;
-//         }
-
-//         sImgActive()
-
-//     }
-
-//     function sImgActive() {
-//         let sImg = $('.smallimg li').eq(liNum).find('img').attr('src');
-//         let sText1 = $('.smallimg li').eq(liNum).find('.title1').text();
-//         let sText2 = $('.smallimg li').eq(liNum).find('.title2').text();
-
-//         $('.bigimg img').attr('src', sImg);
-//         $('.bigimg .title1').text(sText1);
-//         $('.bigimg .title2').text(sText2);
-
-//         $('.smallimg li').eq(liNum).addClass('on').siblings().removeClass('on');
-
-
-//     }
-
-//     // 처 음 모 습
-//     // let sImg0 = $('.smallimg li').eq(liNum).find('img').attr('src');
-//     // let sText0 = $('.smallimg li').eq(liNum).find('.title1').text();
-
-//     // $('.bigimg img').attr('src', sImg0);
-//     // $('.bigimg .title1').text(sText0);
-
-
-//     $('#section3 .box1 li span.text2').each(function () {
-//         let dot = 50;
-//         let text = $(this).text().trim();
-
-//         if (text.length > dot) {
-//             let realText = text.substring(0, dot)
-//             $(this).text(realText + '...')
-//         }
-//     });
-
-//     document.addEventListener('visibilitychange', function () {
-//         if (document.hidden) {
-//             // 비활성화: 롤링 정지
-//             if (rolling) {
-//                 clearInterval(rolling);
-//                 rolling = null;
-//             }
-//         } else {
-//             // 활성화: 중복 방지 후 재시작
-//             if (!rolling) {
-//                 rolling = setInterval(rollingImg, 2000);
-//             }
-//         }
-//     });
-
-
-
-//     // ▼ 선택 추가: 창 포커스 기준으로도 안전하게 (원치 않으면 생략)
-//     window.addEventListener('blur', function () {
-//         if (rolling) {
-//             clearInterval(rolling);
-//             rolling = null;
-//         }
-//     });
-
-//     window.addEventListener('focus', function () {
-//         if (!rolling) {
-//             rolling = setInterval(rollingImg, 2000);
-//         }
-//     });
-
-
-    
-// });
-
-    
-
-
-// // 탭 시각 상태만 토글
-//     $('.navi span a').on('click', function(e){
-//         e.preventDefault();
-//         $(this).parent().addClass('on').siblings().removeClass('on');
-//         // 내용 전환 예시(섹션 아이디는 예시)
-//         const tab = $(this).text().trim().toLowerCase(); // "history" / "location"
-//         $('[data-tab]').hide();
-//         $('[data-tab="'+tab+'"]').show();
-//     });
-
-
-
-// })
-
-// // document.querySelectorAll('.stars').forEach((starsBox) => {
-// //     const stars = Array.from(starsBox.querySelectorAll('.star'));
-// //     let selected = 0;
-
-// //     const paint = (n) => {
-// //         stars.forEach((btn, i) => btn.setAttribute('data-filled', String(i < n)));
-// //     };
-
-// //     starsBox.addEventListener('mouseover', (e) => {
-// //         const btn = e.target.closest('.star');
-// //         if (!btn) return;
-// //         paint(Number(btn.dataset.value));
-// //     });
-
-// //     starsBox.addEventListener('mouseleave', () => paint(selected));
-
-// //     starsBox.addEventListener('click', (e) => {
-// //         const btn = e.target.closest('.star');
-// //         if (!btn) return;
-// //         selected = Number(btn.dataset.value);
-// //         paint(selected);
-// //     });
-
-// //     paint(0);
-// // });
-
-
-
 
 // jQuery DOM Ready
 $(function () {
@@ -271,7 +5,7 @@ $(function () {
   /* =====================================
    * 0) 공통 헤더 include + 헤더 초기화
    * ===================================== */
-  
+  $('footer').load('include/footer.html') 
   $('header').load('include/header.html', function () {
     // 0-1) PC ↔ MO 네비 복제
     const pcNav = $('.pc_nav').html();
@@ -510,4 +244,25 @@ $(function () {
      // 해시 변경 (화면 이동 없음)
   history.replaceState(null, "", "#" + target);
   });
+
+  $('.selectbox .title').click(function(){
+    $('.selectbox ul').stop().slideToggle();
+  });
+  $('.selectbox ul li').click(function(){
+    let sT = $(this).text();
+    $('.selectbox .title p').text(sT);
+    $('.selectbox ul').slideUp();
+  });
+
+  $('.search_input').keyup(function(){
+    let searchVal = $(this).val();
+    if(searchVal !=''){
+      $('.search_wrap i').css({color:'#D14C00'});
+    }else {
+      $('.search_wrap i').css({color:''});
+    };
+    // $('body').animate({marginLeft:'5px', marginTop:'20px'},10)
+    // $('body').animate({marginLeft:'-5px',marginTop:'-20px'},10)
+  })
+
 });
