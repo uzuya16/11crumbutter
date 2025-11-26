@@ -5,7 +5,7 @@ $(function () {
   /* =====================================
    * 0) 공통 헤더 include + 헤더 초기화
    * ===================================== */
-  $('footer').load('include/footer.html') 
+  $('footer').load('include/footer.html')
   $('header').load('include/header.html', function () {
     // 0-1) PC ↔ MO 네비 복제
     const pcNav = $('.pc_nav').html();
@@ -60,7 +60,19 @@ $(function () {
     }
     $(window).on('resize.header', headerResizeReset);
     headerResizeReset(); // 최초 1회
+
+    // ★ 하위메뉴(2뎁스) 클릭 시: 메뉴 닫기 ★
+    $('.mo_nav').on('click', '.lnb a', function () {
+      $('.mo_nav').fadeOut().removeClass('on');
+      $('.hamburger').removeClass('on');
+      $('body').css({ height: '', overflow: '' });
+    });
+
   });
+
+
+
+
 
   /* =====================================
    * 1) 섹션3 레이아웃 리사이즈 대응
@@ -167,7 +179,7 @@ $(function () {
   /* =====================================
    * 5) About 탭 전환 (history/location)
    * ===================================== */
-  const $tabs  = $('#hero_sub .navi span a');
+  const $tabs = $('#hero_sub .navi span a');
   const $panes = $('#hero_sub [data-tab]');
 
   (function initTab() {
@@ -183,23 +195,23 @@ $(function () {
   });
 
 
-  $('.fa-eye').click(function(){
-    $(this).siblings('input[type="password"]').attr('type','text');
+  $('.fa-eye').click(function () {
+    $(this).siblings('input[type="password"]').attr('type', 'text');
 
     $('.fa-eye-slash').show();
     $(this).hide();
   })
 
-    $('.fa-eye-slash').click(function(){
-    $(this).siblings('input[type="text"]').attr('type','password');
+  $('.fa-eye-slash').click(function () {
+    $(this).siblings('input[type="text"]').attr('type', 'password');
 
     $('.fa-eye').show();
     $(this).hide();
   })
-  $('.login .id_box input').keydown(function(){
+  $('.login .id_box input').keydown(function () {
     console.log(e.key);
   })
-  
+
 });
 
 
@@ -241,28 +253,54 @@ $(function () {
     let target = $(this).data("target");
     showSection(target);
 
-     // 해시 변경 (화면 이동 없음)
-  history.replaceState(null, "", "#" + target);
+    // 해시 변경 (화면 이동 없음)
+    history.replaceState(null, "", "#" + target);
   });
 
-  $('.selectbox .title').click(function(){
+  $('.selectbox .title').click(function () {
     $('.selectbox ul').stop().slideToggle();
   });
-  $('.selectbox ul li').click(function(){
+  $('.selectbox ul li').click(function () {
     let sT = $(this).text();
     $('.selectbox .title p').text(sT);
     $('.selectbox ul').slideUp();
   });
 
-  $('.search_input').keyup(function(){
+  $('.search_input').keyup(function () {
     let searchVal = $(this).val();
-    if(searchVal !=''){
-      $('.search_wrap i').css({color:'#D14C00'});
-    }else {
-      $('.search_wrap i').css({color:''});
+    if (searchVal != '') {
+      $('.search_wrap i').css({ color: '#D14C00' });
+    } else {
+      $('.search_wrap i').css({ color: '' });
     };
     // $('body').animate({marginLeft:'5px', marginTop:'20px'},10)
     // $('body').animate({marginLeft:'-5px',marginTop:'-20px'},10)
   })
 
+});
+
+
+// products 썸네일 클릭 → 메인 이미지 변경
+const thumbs = document.querySelectorAll('.thumb-list img');
+const mainImg = document.querySelector('.thumb-main');
+
+thumbs.forEach(thumb => {
+  thumb.addEventListener('click', () => {
+    mainImg.src = thumb.src;
+  });
+});
+
+// 수량 증가/감소
+const minus = document.querySelector('.qty-minus');
+const plus  = document.querySelector('.qty-plus');
+const qtyInput = document.querySelector('.qty input');
+
+minus.addEventListener('click', () => {
+  let v = Number(qtyInput.value);
+  if (v > 1) qtyInput.value = v - 1;
+});
+
+plus.addEventListener('click', () => {
+  let v = Number(qtyInput.value);
+  qtyInput.value = v + 1;
 });
